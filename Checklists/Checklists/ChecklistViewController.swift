@@ -1,60 +1,13 @@
-/// Copyright (c) 2018 Razeware LLC
-///
-/// Permission is hereby granted, free of charge, to any person obtaining a copy
-/// of this software and associated documentation files (the "Software"), to deal
-/// in the Software without restriction, including without limitation the rights
-/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-/// copies of the Software, and to permit persons to whom the Software is
-/// furnished to do so, subject to the following conditions:
-///
-/// The above copyright notice and this permission notice shall be included in
-/// all copies or substantial portions of the Software.
-///
-/// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
-/// distribute, sublicense, create a derivative work, and/or sell copies of the
-/// Software in any work that is designed, intended, or marketed for pedagogical or
-/// instructional purposes related to programming, coding, application development,
-/// or information technology.  Permission for such use, copying, modification,
-/// merger, publication, distribution, sublicensing, creation of derivative works,
-/// or sale is expressly withheld.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.
-
 import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
+  var checklist: Checklist!
   var items = [ChecklistItem]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let item1 = ChecklistItem()
-    item1.text = "Walk the dog"
-    items.append(item1)
-    
-    let item2 = ChecklistItem()
-    item2.text = "Brush my teeth"
-    item2.checked = true
-    items.append(item2)
-    
-    let item3 = ChecklistItem()
-    item3.text = "Learn iOS development"
-    item3.checked = true
-    items.append(item3)
-    
-    let item4 = ChecklistItem()
-    item4.text = "Soccer practice"
-    items.append(item4)
-    
-    let item5 = ChecklistItem()
-    item5.text = "Eat ice cream"
-    items.append(item5)
+    loadChecklistItems()
+    title = checklist.name
   }
   
   // MARK:- Navigation
@@ -87,6 +40,37 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     label.text = item.text
   }
   
+  func documentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+  
+  func dataFilePath() -> URL {
+    return documentsDirectory().appendingPathComponent("Checklists.plist")
+  }
+  
+  func saveChecklistItems() {
+    let encoder = PropertyListEncoder()
+    do {
+      let data = try encoder.encode(items)
+      try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+    } catch {
+      print("Error encoding item array: \(error.localizedDescription)")
+    }
+  }
+  
+  func loadChecklistItems() {
+    let path = dataFilePath()
+    if let data = try? Data(contentsOf: path) {
+      let decoder = PropertyListDecoder()
+      do {
+        items = try decoder.decode([ChecklistItem].self, from: data)
+      } catch {
+        print("Error decoding item array: \(error.localizedDescription)")
+      }
+    }
+  }
+  
   // MARK:- Table View Data Source
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
@@ -108,6 +92,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     let indexPaths = [indexPath]
     tableView.deleteRows(at: indexPaths, with: .automatic)
+    saveChecklistItems()
   }
   
   // MARK:- Table View Delegate
@@ -118,6 +103,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       configureCheckmark(for: cell, with: item)
     }
     tableView.deselectRow(at: indexPath, animated: true)
+    saveChecklistItems()
   }
   
   // MARK:- Add Item ViewController Delegates
@@ -134,6 +120,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     tableView.insertRows(at: indexPaths, with: .automatic)
     
     navigationController?.popViewController(animated:true)
+    saveChecklistItems()
   }
   
   func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
@@ -144,6 +131,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       }
     }
     navigationController?.popViewController(animated:true)
+    saveChecklistItems()
   }
 }
 

@@ -14,6 +14,9 @@
 		DD09BA2B20CE654F00720D6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD09BA2920CE654F00720D6E /* LaunchScreen.storyboard */; };
 		DD6B938720D34159000DDA20 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6B938620D34159000DDA20 /* ChecklistItem.swift */; };
 		DD6B938920D5049E000DDA20 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6B938820D5049E000DDA20 /* ItemDetailViewController.swift */; };
+		DDF1520D20D8D40A009D8F6B /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF1520C20D8D40A009D8F6B /* AllListsViewController.swift */; };
+		DDF1520F20D8FFD9009D8F6B /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF1520E20D8FFD9009D8F6B /* Checklist.swift */; };
+		DDF1521120D9285F009D8F6B /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF1521020D9285F009D8F6B /* ListDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		DD09BA2C20CE655000720D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD6B938620D34159000DDA20 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		DD6B938820D5049E000DDA20 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		DDF1520C20D8D40A009D8F6B /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		DDF1520E20D8FFD9009D8F6B /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		DDF1521020D9285F009D8F6B /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +67,17 @@
 		DD09BA1F20CE654E00720D6E /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				DD6B938820D5049E000DDA20 /* ItemDetailViewController.swift */,
+				DDF1520C20D8D40A009D8F6B /* AllListsViewController.swift */,
 				DD09BA2020CE654E00720D6E /* AppDelegate.swift */,
+				DDF1520E20D8FFD9009D8F6B /* Checklist.swift */,
+				DD6B938620D34159000DDA20 /* ChecklistItem.swift */,
 				DD09BA2220CE654E00720D6E /* ChecklistViewController.swift */,
+				DD6B938820D5049E000DDA20 /* ItemDetailViewController.swift */,
+				DDF1521020D9285F009D8F6B /* ListDetailViewController.swift */,
 				DD09BA2420CE654E00720D6E /* Main.storyboard */,
 				DD09BA2720CE654F00720D6E /* Assets.xcassets */,
 				DD09BA2920CE654F00720D6E /* LaunchScreen.storyboard */,
 				DD09BA2C20CE655000720D6E /* Info.plist */,
-				DD6B938620D34159000DDA20 /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -145,8 +154,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD09BA2320CE654E00720D6E /* ChecklistViewController.swift in Sources */,
+				DDF1521120D9285F009D8F6B /* ListDetailViewController.swift in Sources */,
 				DD6B938920D5049E000DDA20 /* ItemDetailViewController.swift in Sources */,
+				DDF1520F20D8FFD9009D8F6B /* Checklist.swift in Sources */,
 				DD6B938720D34159000DDA20 /* ChecklistItem.swift in Sources */,
+				DDF1520D20D8D40A009D8F6B /* AllListsViewController.swift in Sources */,
 				DD09BA2120CE654E00720D6E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,10 +304,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QX3779KV49;
+				DEVELOPMENT_TEAM = 73W89A3N2F;
 				INFOPLIST_FILE = Checklists/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Checklists;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongduc.checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,10 +323,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QX3779KV49;
+				DEVELOPMENT_TEAM = 73W89A3N2F;
 				INFOPLIST_FILE = Checklists/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Checklists;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hongduc.checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
