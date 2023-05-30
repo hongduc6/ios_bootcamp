@@ -14,6 +14,8 @@
 		6915C94B2A0A58CC00588862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6915C94A2A0A58CC00588862 /* Assets.xcassets */; };
 		6915C94E2A0A58CC00588862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6915C94C2A0A58CC00588862 /* LaunchScreen.storyboard */; };
 		6915C9572A0A5BD600588862 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C9562A0A5BD600588862 /* CurrentLocationViewController.swift */; };
+		6970A5352A2491BA00D06220 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970A5342A2491BA00D06220 /* LocationDetailsViewController.swift */; };
+		6970A5372A24B71D00D06220 /* CategoryPickerViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6970A5362A24B71D00D06220 /* CategoryPickerViewControllers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		6915C94D2A0A58CC00588862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6915C94F2A0A58CC00588862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6915C9562A0A5BD600588862 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
+		6970A5342A2491BA00D06220 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		6970A5362A24B71D00D06220 /* CategoryPickerViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewControllers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			children = (
 				6915C9452A0A58CB00588862 /* HomeController.swift */,
 				6915C9562A0A5BD600588862 /* CurrentLocationViewController.swift */,
+				6970A5342A2491BA00D06220 /* LocationDetailsViewController.swift */,
+				6970A5362A24B71D00D06220 /* CategoryPickerViewControllers.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -151,8 +157,10 @@
 			files = (
 				6915C9462A0A58CB00588862 /* HomeController.swift in Sources */,
 				6915C9572A0A5BD600588862 /* CurrentLocationViewController.swift in Sources */,
+				6970A5372A24B71D00D06220 /* CategoryPickerViewControllers.swift in Sources */,
 				6915C9422A0A58CB00588862 /* AppDelegate.swift in Sources */,
 				6915C9442A0A58CB00588862 /* SceneDelegate.swift in Sources */,
+				6970A5352A2491BA00D06220 /* LocationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
